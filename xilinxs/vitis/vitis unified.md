@@ -8,7 +8,7 @@
 Xilinx Vitis (previously xilinx sdk) is an integrated development environment (IDE) based on eclips designed for heterogeneous computing on Xilinx FPGAs, SoCs, and ACAPs. It allows developers to program Xilinx hardware using high-level languages (C, C++, and OpenCL)
 
 ## Features of Vitis
-- `High-Level Synthesis (HLS)` – develop hardware acceleration on FPGA using C, C++, or OpenCL intead of Verilog/VHDL.
+- `High-Level Synthesis (HLS)` – develop hardware acceleration on FPGA using C, C++, or OpenCL instead of Verilog/VHDL.
 - Embedded software development for PS and PL 
 - `Vitis AI` – Optimized for AI/ML acceleration on Xilinx platforms.
 - Integration with Xilinx Vivado – For FPGA logic design.
@@ -27,8 +27,10 @@ Xilinx Vitis (previously xilinx sdk) is an integrated development environment (I
   - Device tree information for Linux
 - Vitis uses the .XSA file to generate Provides drivers and APIs to control FPGA IPs
 - If you're working with AI acceleration on `Vitis AI` can be used to optimizes models for DPU (Deep Learning Processing Unit- on PL) on Kria K26. it Supports TensorFlow, PyTorch, ONNX, etc.
-- `Vitis HLS` - it automatically converts the C/C++ code into an RTL design (Verilog/VHDL), which describes how the hardware should function.
+- `Vitis HLS` - it automatically converts the C/C++ code into an `RTL`(register transfer level) design (Verilog/VHDL), which describes how the hardware should function.
 - while hardware accelerated kernels are compiled into an executable device binary `.xclbin`
+- The software program uses the XRT native API implemented by the `AMD Runtime library (XRT)` to interact with the acceleration kernel in the AMD device
+- `AXI interface` is using for PS-PL communication 
 ## Installation 
 - The best approach is to install `Vitis Core Development Kit` that combines all aspects of Xilinx® software development into one unified environment.
 - it includes Vivado® Design Suite, Vitis Model Composer, Vitis HLS and software development tool stack, such as compilers and cross-compilers, to build your host program and kernel code, analyzers, debugger. There is no need to install Vivado separately.
@@ -134,9 +136,40 @@ Now that you have generated the executable binary, you can test it on a board. T
 - On the Confirm Perspective Switch dialog, click Yes. The Vitis IDE switches to the Debug perspective and the debugger stops at the entry to your main() function. 
 - Using the commands in the toolbar, step through the application. - After you step through the print() function, Hello World appears in the UART console
 
-## reference
-* vitis github: https://github.com/Xilinx/kria-vitis-platforms
 
+
+## Understanding the Vitis Build Process
+
+The Vitis build process follows a standard compilation and linking process for both the host program and the kernel code:
+
+The host program is built using the GNU C++ compiler (g++) for Data Center applications or the GNU C++ Arm cross-compiler for Embedded Processor devices.
+
+The FPGA binary is built using the Vitis compiler (v++). First the kernels are compiled into a AMD object (.xo) file. Then, the .xo files are linked with the hardware platform to generate the AMD device binary (.xclbin) file. As described in V++ Command, the Vitis compiler and linker accepts a wide range of options to tailor and optimize the results.
+
+## Understanding Vitis Build Targets
+
+The Vitis compiler provides three different build targets: two emulation targets used for debug and validation purposes, and the default hardware target used to generate the actual FPGA binary:
+
+Software Emulation: The kernel code is compiled to run on the host processor. This allows iterative algorithm refinement through fast build-and-run loops. This target is useful for identifying syntax errors, performing source-level debugging of the kernel code running together with application, and verifying the behavior of the system.
+
+Hardware Emulation: The kernel code is compiled into a hardware model (RTL), which is run in a dedicated simulator. This build-and-run loop takes longer but provides a detailed, cycle-accurate view of kernel activity. This target is useful for testing the functionality of the logic that will go in the FPGA and getting initial performance estimates.
+
+Hardware: The kernel code is compiled into a hardware description language (RTL), and then synthesized and implemented for a target AMD device, resulting in a binary (xclbin) file that will run on the actual FPGA.
+## how a software program interact with hardware kernal
+here are multiple ways by which the software program can interact with the hardware kernels. The simplest method can be decomposed into the following steps:
+
+- The host application writes the data needed by a kernel into the global memory of the FPGA device.
+- The host program sets up the input parameters of the kernel.
+- The host program triggers the execution of the kernel.
+- The kernel performs the required computation, accessing global memory to read or write data, as necessary. Kernels can also use streaming connections to communicate with other kernels, passing data from one kernel to the next.
+- The kernel notifies the host that it has completed its task.
+- The host program transfers data from global memory back into host memory, or can give ownership of the data to another kernel.
+
+
+
+## reference
+- vitis github: https://github.com/Xilinx/kria-vitis-platforms
+- vitis tutorial: https://github.com/Xilinx/Vitis-Tutorials/tree/2024.2?tab=readme-ov-file#tutorials
 
 ## doubts
 * are we creating general purpose applications or application for PS-PL communucation using vitis?
@@ -146,5 +179,3 @@ Now that you have generated the executable binary, you can test it on a board. T
     - The reason for this is to ensure that the Processing System (PS) correctly recognizes and interacts with the Programmable Logic (PL).
     - Vitis uses the .xsa file to generate drivers and software APIs.
 * what modifications are need to our OS if we add an hardware accelerator
-
-
