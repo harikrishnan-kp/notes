@@ -11,3 +11,4 @@
     - HLS(high level synthesis)
     - GUI tools (no coding)
 - learn Development flows,focus on Vitis accelerator flow, Vitis Platform flow
+- platform created, next is testing https://docs.amd.com/r/2022.2-English/Vitis-Tutorials-Vitis-Platform-Creation/Next-Step?tocId=mI9cx1QEC7wqFmCi0hdFMA

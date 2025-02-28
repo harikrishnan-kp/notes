@@ -5,4 +5,9 @@
 </table>
 
 - vivado is for creating custom IP blocks in FPGA(hardware accelerator + it's cummunication interface with PS).
-- output of vivado is a hardware description file - XSA (xilings support archive)
+- output of vivado is a hardware description file - `XSA` (xilings shell archive)
+- this XSA file is needed for `dtbo` file generation
+- vivado support IP block integration using GUI tools 
+
+## Create the Vivado Hardware Design and Generate XSA
+create the hardware design for the KV260 Vitis acceleration platform

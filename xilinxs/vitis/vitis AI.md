@@ -17,7 +17,7 @@ It is designed with high efficiency and ease of use in mind, empowering develope
 
 - [github repo](https://github.com/Xilinx/Vitis-AI)
 - [Documentation of Vitis-AI V3.0](https://xilinx.github.io/Vitis-AI/3.0/html/index.html)
-- [old xilinx userguide for vitis-AI 3.0](https://docs.amd.com/r/3.0-English/ug1414-vitis-ai)
+- [Userguide of vitis-AI 3.0](https://docs.amd.com/r/3.0-English/ug1414-vitis-ai)
 
 ## Installing Vitis V3.0
 installation guide: https://xilinx.github.io/Vitis-AI/3.0/html/docs/install/install.html#
@@ -93,12 +93,12 @@ https://xilinx.github.io/Vitis-AI/3.0/html/docs/quickstart/mpsoc.html#setup-the-
   ```
 - to run an AI model on kv260, it should be converted into `<model_name>.xmodel `
 - `.xmodel` is the AI model quantized an compiled for running on kv260 or other xilixs dev boards
-- The `.prototxt file` is a Vitis™ AI configuration file that facilitates the uniform configuration management of model parameters. Please refer to the Vitis AI User Guide to learn more.
+- The `.prototxt` file is a Vitis™ AI configuration file that facilitates the uniform configuration management of model parameters. Please refer to the Vitis AI User Guide to learn more.
 
 # doubt
 - what is the difference between vai_library and vai_runtime examples
 - why compiling prebuild apps failing inside docker container
-- what is the actual process running under the hood how to configure an app to run on DPU
+- what is the actual process running under the hood, how to configure an app to run on DPU
 
 # TODO
 - run prebuild smartcam application on kv260 using vitis AI

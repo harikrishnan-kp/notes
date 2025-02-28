@@ -1,7 +1,3 @@
-# Notes
-- Zynq UltraScale+ MPSoC `ZCU104 Evaluation Kit` is using for IP validation
-- seems like aarch64-xilinx-linux-gcc is the compiler using for compiling c program for xylinx
-- varients of DPU IP `DPUCVDX8H` is using for AI acceleration
 ### what is argument parser in python
 In Python, an argument parser refers to a tool that helps handle command-line arguments passed to a script. The most commonly used argument parser is the argparse module from the standard library.
 What is argparse?
@@ -25,6 +21,16 @@ its an AI framework, extension of model files are `.pth` and `.pt`
 
 ### what is hardware and software kernal
 A hardware kernel is a specialized function or processing block that runs directly on programmable hardware (such as an FPGA) instead of a traditional CPU. It is used in hardware acceleration to offload compute-intensive tasks from software to hardware, achieving higher performance, lower latency, and better power efficiency. In the Vitis Unified Software Platform, a hardware kernel is a compute function written in C, C++, OpenCL, or RTL (Verilog/VHDL) that gets synthesized into FPGA logic. These kernels execute in parallel and can communicate with a CPU or other kernels via high-speed interfaces like AXI4.
+
+
+
+
+
+
+
+
+
+
 ## doubts
 - is it possible to impliment cpu cores on FPGA fabric 
     - yes,we can impliment cpu cores on FPGA fabric using VHDL/Verilog, it is called as `soft processor cores`.it has some pros and cons compared to `hard processor cores`

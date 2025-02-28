@@ -1,0 +1,5 @@
+- XSCT is a Console tool of Vitis. You can start it by typing xsct in Linux terminal
+- Zynq UltraScale+ MPSoC `ZCU104 Evaluation Kit` is using for IP validation
+- seems like aarch64-xilinx-linux-gcc is the compiler using for compiling c program for xylinx
+- varients of DPU IP `DPUCVDX8H` is using for AI acceleration
+- file extension appendix: https://xilinx.github.io/kria-apps-docs/creating_applications/2022.1/build/html/docs/overview.html#file-extension-appendix
