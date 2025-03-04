@@ -97,8 +97,6 @@ https://xilinx.github.io/Vitis-AI/3.0/html/docs/quickstart/mpsoc.html#setup-the-
 
 # doubt
 - what is the difference between vai_library and vai_runtime examples
-- why compiling prebuild apps failing inside docker container
-- what is the actual process running under the hood, how to configure an app to run on DPU
+- why compiling example apps failing inside docker container(cross compilation)
+- does the prebuild vitis-AI OS came with a DPU(for running on PL),if it is where the DPU realetd file are located
 
-# TODO
-- run prebuild smartcam application on kv260 using vitis AI

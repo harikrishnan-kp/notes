@@ -11,4 +11,6 @@
     - HLS(high level synthesis)
     - GUI tools (no coding)
 - learn Development flows,focus on Vitis accelerator flow, Vitis Platform flow
-- platform created, next is testing https://docs.amd.com/r/2022.2-English/Vitis-Tutorials-Vitis-Platform-Creation/Next-Step?tocId=mI9cx1QEC7wqFmCi0hdFMA
+- run prebuild smartcam application on kv260 using vitis AI
+- what is the actual process running under the hood, how to configure an app to run on DPU
+

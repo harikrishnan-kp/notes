@@ -3,3 +3,21 @@
 - seems like aarch64-xilinx-linux-gcc is the compiler using for compiling c program for xylinx
 - varients of DPU IP `DPUCVDX8H` is using for AI acceleration
 - file extension appendix: https://xilinx.github.io/kria-apps-docs/creating_applications/2022.1/build/html/docs/overview.html#file-extension-appendix
+
+## doubts
+- is it possible to impliment cpu cores on FPGA fabric 
+    - yes,we can impliment cpu cores on FPGA fabric using VHDL/Verilog, it is called as `soft processor cores`.it has some pros and cons compared to `hard processor cores`
+    - eg:
+        - MicroBlaze (Xilinx) – A 32-bit RISC processor used in Xilinx FPGAs.
+        - Nios II (Intel/Altera) – A configurable 32-bit soft-core for Intel FPGAs.
+        - VexRISC-V – A small and efficient RISC-V soft-core.
+        - PicoRV32 – A lightweight RISC-V implementation.
+- we dont have to impliment a processor core for running apps in our FPGA fabric if we have a `hard processor core` in it 
+- does GPU have a cpu in it: no
+- are we creating general purpose applications or application for PS-PL communucation using vitis?
+    - vitis can be Used for software development on the ARM Cortex-A53 cores (PS), including Linux applications, bare-metal firmware, and managing PS-PL communication.
+- if we are using vitis for general purpose application development,why can't with other IDEs?
+- Why Do We Feed the Vivado Bitstream to Vitis Before Development?
+    - The reason for this is to ensure that the Processing System (PS) correctly recognizes and interacts with the Programmable Logic (PL).
+    - Vitis uses the .xsa file to generate drivers and software APIs.
+- what modifications are need to our OS if we add an hardware accelerator

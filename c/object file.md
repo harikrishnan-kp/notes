@@ -57,3 +57,8 @@ You can inspect an object file's sections using:
     readelf -S file.o (Linux)
     nm file.o (Shows symbols)
     dumpbin /headers file.obj (Windows)
+
+## types of object files
+- relocatable: non executable file that need to be linked into another file
+- executable: executable binary program
+- shared object:these are shared libraries (for dynamic linking)

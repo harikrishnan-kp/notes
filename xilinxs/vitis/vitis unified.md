@@ -7,7 +7,7 @@
 The Vitis™ unified software platform enables the development of embedded software and accelerated applications on heterogeneous Xilinx® platforms including FPGAs, SoCs, and Versal™ ACAPs.
 
 
-## The platform includes the following tools & libraries
+## This kit includes the following tools & libraries
 - `Vitis` (previously xilinx sdk) is an integrated development environment (IDE) based on eclips. 
 - [`vitis HLS`](vitis%20HLS.md): High Level Synthesis – develop hardware acceleration on FPGA using C, C++, or OpenCL instead of Verilog/VHDL.
 -  `Vitis Embedded` – For developing C/C++  application code running on embedded Arm processors
@@ -32,7 +32,7 @@ The Vitis™ unified software platform enables the development of embedded softw
 - `AXI interface` is using for PS-PL communication 
 - The software program uses the APIs from `XRT`(xilinx runtime) library to interact with the acceleration kernel thorugh AXI interface in the AMD device
 ```bash
-Note: Installing XRT is not required when targeting Arm-based embedded platforms. The Vitis compiler has its own copy of xclbinutil for hardware generation; and for software compilation you can use the XRT from the sysroot on the Embedded Processor platform.
+Note: Installing XRT is not required when targeting Arm-based embedded platforms. The Vitis compiler has its own copy of xclbinutil for hardware generation, and for software compilation you can use the XRT from the sysroot on the Embedded Processor platform.
 ```
 - vitis need a hardware desciption file (XSA - Xilinx Support Archive) for creating a platform specific applications
 - if we are using PS only for develoment we need the XSA of our PS for creating our development platform
@@ -47,7 +47,7 @@ Note: Installing XRT is not required when targeting Arm-based embedded platforms
 - while hardware accelerated kernels are compiled into an executable device binary `.xclbin`
 
 ## platform in vitis
-a platform provide hardware information and software environment settings
+a platform provide hardware information and software environment settings.it mimic the target environment where the application code need to be run actually
 <img src="../vitis_pfrm.png">
 ## Installation 
 - The best approach is to install `Vitis Core Development Kit` that combines all aspects of Xilinx® software development into one unified environment.
@@ -98,30 +98,6 @@ a platform provide hardware information and software environment settings
 
   WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
 
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
-  WARN  - MissingBundle for: DEFAULT_DESTINATION_FOLDER_LIN_DownloadSelectedProd, will use the key as the value 
-
   INFO  - Download image directory is /home/user/Downloads/xlnx_dwnld_pkg 
 
   ERROR - Checksum failed, expected: 889161cf7a169c41ef7b6032fdd6a1c3 but was: 7ba83f98fc1ef777f261638b6be5d1c1 for file https://amd-ax-dl.entitlenow.com/dl/ul/2022/04/20/R210580947/rdi_0890_2022.1_0420_0327.xz?hash=SvQmN60YnJ428R-O-WBGTw&expires=1739541734&filename=rdi_0890_2022.1_0420_0327.xz&sessionid=060dd96a-f69c-4925-b035-a84444325ca5 
@@ -136,6 +112,17 @@ Hardware acceleration means offloading specific computations from the CPU to spe
 * Run the Linux application to communicate with the FPGA accelerator.
 
 The API calls, managed by XRT, are used to process transactions between the host program and the hardware accelerators. Communication between the host and the kernel, including control and data transfers, occurs across the PCIe® bus or an AXI bus for embedded platforms. Control information is written to or read from specific address-mapped register in the kernels. Data buffers are exchanged between the host and kernels through global memory. Global memory is accessible by both the host processor and hardware accelerators, while host memory is only accessible by the host application.
+## Vitis platform and application development can be divided into these parts:
+
+- Platform hardware creation in Vivado. It exports an `XSA `file with clock, reset, AXI interface and interrupt signals and properties.
+
+- Platform software preparation with common image or using PetaLinux tool, including Linux kernel, rootfs, device tree and boot components.
+
+- Platform creation in Vitis to combine all hardware and software components and generate `XPFM` description.
+
+- Create applications in Vitis against the platform. Vitis generates host application, xclbin and sd_card.img.
+
+- Write sd_card.img to SD card or update host application and xclbin to an existing SD card.
 
 ## Understanding Vitis Build Targets
 
@@ -161,8 +148,62 @@ here are multiple ways by which the software program can interact with the hardw
 - The kernel notifies the host that it has completed its task.
 - The host program transfers data from global memory back into host memory, or can give ownership of the data to another kernel.
 
-## Vitis embedded software development flow
-The Vitis application acceleration development flow provides a framework for developing and delivering FPGA accelerated applications using standard programming languages for both software and hardware components. The software component, or host program, is developed using C/C++ to run on x86 or embedded processors, with OpenCL™ API calls to manage runtime interactions with the accelerator. The hardware component, or kernel, can be developed using C/C++, OpenCL C, or RTL. The Vitis software platform promotes concurrent development and test of the Hardware and Software elements of an heterogeneous application.
+
+# hardware accelerated application development for kv260 using vitis
+hardware accelerated application can be doveloped using different methodes(called as development flow)
+1. vitis platform flow
+2. vitis accelerator flow
+3. vivado accelerator flow
+4. bare-metal flow
+5. Custom Carrier Card Flow
+
+The design artifact captured from any of the workflows(not sure about bare-metal flow)for designing a PL configuration is a bitstream (.bit, often required in .bit.bin form). This bitstream can be loaded at boot as part of the device boot firmware, or after the OS boot via a runtime library.
+
+https://xilinx.github.io/kria-apps-docs/creating_applications/2022.1/build/html/docs/overview.html
+
+```bash
+#note: development flows 4,5 don`t need vitis
+``` 
+## Vitis platform flow example
+https://docs.amd.com/r/2022.2-English/Vitis-Tutorials-Vitis-Platform-Creation/Custom-Kria-SOM-Platform-Creation-Example
+- in this example we are developing an hardware accelerated application for vector addition. ie, we are offloading burden of vector addition to a special hardware created on PL
+- install OS and setup communication interface to kv260
+- using vivado create a specific hardware (ps and pl-ps communcation interface(AXI)) for interfacing hardware kernal(PL) designed for vector addition.the output of step is XSA file,this will use for creating dtbo file
+-  then create a `vitis platform`(on vitis) using the above `XSA`, which contain `dtbo` and `sysroot`
+- then in vitis,import prewritten vector addition application and build it for running on kv260 
+  - in this step we are building hardware kernal, PS-PL interfacer and application seperately.
+  - we will get a `xclbin`(harware kernal) and executable app file 
+- copy app,dtbo,xclbin and shell.json files to kv260
+- load app using xmutil
+- run app
+### errors
+- while trying to create a device tree blob overlay from XSA
+  - error- createdts: command not found
+    - solution: source vitis environment properly
+      ```bash
+      source <Vitis_tool_install_dir>/settings64.sh
+      ```
+  - in xsct - Error: please set a workspace or provide -out directory
+    - solution: add the following to our command -out <output_directory>
+- errors while running application on kv260
+  - ```
+    error while loading shared libraries: libxilinxopencl.so.2: cannot open shared object file: No such file or directory
+    ```
+    - solution: this is because of the absence of xrt library, install it 
+      ```
+      sudo dnf install xrt
+      ```
+  - ```
+    EXE: /home/petalinux/vadd
+    [XRT] ERROR: No devices found
+    Error: Unable to find Target Device 
+    ```
+    - solution: this usually indicates that the XRT (Xilinx Runtime) cannot detect your FPGA device(https://github.com/Xilinx/Vitis-Tutorials/issues/262)
+      - try installing XRT version compatable to our OS 
+        - tried xrt versions 202210.2.13.479-r0.0 and 202210.2.14 on petalinux 22.1 OS,its not working
+      - try changing OS to latest embedded linux(yocto),it has the latest packages `(working)`
+
+## vitis accelerator flow 
 
 ## Bare metal build methods
 This section describes how to create a sample Hello World application using an existing template.
@@ -190,47 +231,3 @@ Now that you have generated the executable binary, you can test it on a board. T
 - Right-click the application and select Debug As → Launch on Hardware (Single Application Debug).
 - On the Confirm Perspective Switch dialog, click Yes. The Vitis IDE switches to the Debug perspective and the debugger stops at the entry to your main() function. 
 - Using the commands in the toolbar, step through the application. - After you step through the print() function, Hello World appears in the UART console
-
-## Vitis platform flow example
-https://docs.amd.com/r/2022.2-English/Vitis-Tutorials-Vitis-Platform-Creation/Custom-Kria-SOM-Platform-Creation-Example
-- in this example we are developing an hardware accelerated application for vector addition. ie, we are offloading burden of vector addition to a special hardware created on PL
-- for this operration we need a OS installed on our kv260
-- first we create a vector addition hardware on vivado,the output file XSA will use for creating dtbo file
--  then we will create a `vitis platform`(on vitis) using the above `XSA` which contain `dtbo` and `sysroot`
-- after this we will create a application and build it for running on kv260 
-  - in this step we are building hardware kernal, PS-PL interfacer and application seperately.
-- copy the build to kv260
-- load app
-- run app
-### errors
-- while trying to create a device tree overlay in vitis for vitis platform
-  - error- createdts: command not found
-    - solution: source vitis environment properly
-  - in xsct - Error: please set a workspace or provide -out directory
-    - solution: add the following to our command -out <output_directory>
-- errors while running application on kv260
-  - ```
-    error while loading shared libraries: libxilinxopencl.so.2: cannot open shared object file: No such file or directory
-    ```
-    - solution: sudo dnf install xrt
-  - ```
-    EXE: /home/petalinux/vadd
-    [XRT] ERROR: No devices found
-    Error: Unable to find Target Device 
-    ```
-    usually indicates that the XRT (Xilinx Runtime) cannot detect your FPGA device
-      - solution: options
-        - https://github.com/Xilinx/Vitis-Tutorials/issues/262 
-        - tryed installing old version of XRT from dnf(202210.2.13.479-r0.0)- not working
-        - try vitis platfrom creation step again
-        - try changing os from petalinux to embedded linux(yocto)
-
-
-## doubts
-* are we creating general purpose applications or application for PS-PL communucation using vitis?
-    - vitis can be Used for software development on the ARM Cortex-A53 cores (PS), including Linux applications, bare-metal firmware, and managing PS-PL communication.
-* if we are using vitis for general purpose application development,why can't with other IDEs?
-* Why Do We Feed the Vivado Bitstream to Vitis Before Development?
-    - The reason for this is to ensure that the Processing System (PS) correctly recognizes and interacts with the Programmable Logic (PL).
-    - Vitis uses the .xsa file to generate drivers and software APIs.
-* what modifications are need to our OS if we add an hardware accelerator

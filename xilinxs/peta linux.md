@@ -9,3 +9,4 @@
 - petalinux user guide: https://docs.amd.com/r/en-US/ug1144-petalinux-tools-reference-guide/Overview
 - how to create a custom embedded Linux image for the Kria KV260 Vision AI Starter Kit in PetaLinux 2021.1 : https://www.hackster.io/whitney-knitter/getting-started-with-the-kria-kv260-in-petalinux-2021-1-b491fd
 - petalinux tools and BSPs https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html
+- how you can customize a PetaLinux project to work for Vitis acceleration applications: https://docs.amd.com/r/lD8AuK8H9fr8ygi_oDV_8Q/7fGeKvfh1jEQwMT0xribMQ
