@@ -112,35 +112,28 @@ Hardware acceleration means offloading specific computations from the CPU to spe
 * Run the Linux application to communicate with the FPGA accelerator.
 
 The API calls, managed by XRT, are used to process transactions between the host program and the hardware accelerators. Communication between the host and the kernel, including control and data transfers, occurs across the PCIe® bus or an AXI bus for embedded platforms. Control information is written to or read from specific address-mapped register in the kernels. Data buffers are exchanged between the host and kernels through global memory. Global memory is accessible by both the host processor and hardware accelerators, while host memory is only accessible by the host application.
+
 ## Vitis platform and application development can be divided into these parts:
-
-- Platform hardware creation in Vivado. It exports an `XSA `file with clock, reset, AXI interface and interrupt signals and properties.
-
+- Platform hardware creation in Vivado. It exports an `XSA` file with clock, reset, AXI interface and interrupt signals and properties.
 - Platform software preparation with common image or using PetaLinux tool, including Linux kernel, rootfs, device tree and boot components.
-
 - Platform creation in Vitis to combine all hardware and software components and generate `XPFM` description.
-
 - Create applications in Vitis against the platform. Vitis generates host application, xclbin and sd_card.img.
-
 - Write sd_card.img to SD card or update host application and xclbin to an existing SD card.
 
 ## Understanding Vitis Build Targets
-
 The Vitis compiler provides three different build targets: two emulation targets used for debug and validation purposes, and the default hardware target used to generate the actual FPGA binary:
-
 - `Software Emulation`: The kernel code is compiled to run on the host processor. This allows iterative algorithm refinement through fast build-and-run loops. This target is useful for identifying syntax errors, performing source-level debugging of the kernel code running together with application, and verifying the behavior of the system.
-
 - `Hardware Emulation`: The kernel code is compiled into a hardware model (RTL), which is run in a dedicated simulator. This build-and-run loop takes longer but provides a detailed, cycle-accurate view of kernel activity. This target is useful for testing the functionality of the logic that will go in the FPGA and getting initial performance estimates.
-
 - `Hardware`: The kernel code is compiled into a hardware description language (RTL), and then synthesized and implemented for a target AMD device, resulting in a binary (xclbin) file that will run on the actual FPGA.
+
 ## vitis compilers
 - The Vitis build process follows a standard compilation and linking process for both the host program and the kernel code 
   - `GNU C++ Arm cross-compiler` for building applications code
   - `Vitis compiler (v++)` for building FPGA binary (hardware kernal),
-First the kernels are compiled into a AMD object (`.xo`) file. Then, the .xo files are linked with the hardware platform to generate the AMD device binary (.xclbin) file.
+First the kernels are compiled into a xilinx object (`.xo`) file. Then, the .xo files are linked with the hardware platform to generate the xilinx device binary (`.xclbin`) file.
+
 ## how a software program interact with hardware kernal
 here are multiple ways by which the software program can interact with the hardware kernels. The simplest method can be decomposed into the following steps:
-
 - The host application writes the data needed by a kernel into the global memory of the FPGA device.
 - The host program sets up the input parameters of the kernel.
 - The host program triggers the execution of the kernel.

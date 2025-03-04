@@ -1,20 +1,20 @@
 # tolearn
 - how to create a custom os for kv260 using petalinux tool
 - how to add dpu while building petalinux os
-- what is sysroot,sdk.h,rootfs, device tree overlay
 - how to create an os using yocto
 - what is vitis platform
 # to learn latest
 
-- Difference between Yocto and PetaLinux
-PetaLinux tools, how to install this, for what purpose this is used
+- Difference between Yocto and PetaLinux tools, how to install this, for what purpose this is used
 - What is SYSROOT?
 - What is ROOTFS used for?
 - What is meant by device tree overlay
 - What is the use of .dtbo file
-- What is XSCT,DTG(device tree generator) and DTC(device tree compiler)
+- What is DTG(device tree generator) and DTC(device tree compiler)
     - seems like all the tool are for generating dtbo.find more information
 - What is a BSP?
+- What is XSCT
+    - XSCT is a Console tool of Vitis. You can start it by typing xsct in Linux terminal
 - What is the purpose of executing sdk.sh, what is it doing
 - Difference between various development flows...(like Vitis Platform, Vitis Application, Vivado Platform, etc...all the items included in the first link I had sent you
 - In which flow, your each work is falling to
