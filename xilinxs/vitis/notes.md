@@ -20,3 +20,6 @@
     - The reason for this is to ensure that the Processing System (PS) correctly recognizes and interacts with the Programmable Logic (PL).
     - Vitis uses the .xsa file to generate drivers and software APIs.
 - what modifications are need to our OS if we add an hardware accelerator
+- are we adding dtbo while platform creation 
+- in vitis accelerator flow,who provide XSA and dtbo amd? or they are saying to use the XSA and dtbo genrated for the previous operation
+- cant install opencv as specified in vitis library,cmake in vitis 22.1 cause version conflict. follow the installation in https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html

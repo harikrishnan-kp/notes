@@ -11,12 +11,16 @@
 - What is meant by device tree overlay
 - What is the use of .dtbo file
 - What is DTG(device tree generator) and DTC(device tree compiler)
-    - seems like all the tool are for generating dtbo.find more information
-- What is a BSP?
+    - DTG is a vitis tool for generating device tree(dts) file from XSA
+    - we can find it from top menu, xilings >> generate device tree
+    - it is also possible to generate dts from XSCT console,using createdtb command
+    - DTC using to compile deviced tree source to dtbo
 - What is XSCT
-    - XSCT is a Console tool of Vitis. You can start it by typing xsct in Linux terminal
+    - XSCT is a Console tool of Vitis. You can start it by typing xsct in Linux terminal to start it. Or, you can select menu Xilinx >> XSCT Console to start the XSCT tool after you launch Vitis.
+- What is a BSP?
 - What is the purpose of executing sdk.sh, what is it doing
-- Difference between various development flows...(like Vitis Platform, Vitis Application, Vivado Platform, etc...all the items included in the first link I had sent you
+    - it is installing sysroot,it helps in cross compilation
+- Difference between various development flows...like Vitis Platform, Vitis Application, Vivado Platform, etc...all the items included in the first link I had sent you
 - In which flow, your each work is falling to
 Compare it with the Vitis-AI work you have done....which flow it is falling to
 - What is meant by HLS
@@ -32,6 +36,7 @@ Compare it with the Vitis-AI work you have done....which flow it is falling to
 - What is .xsa file, .xpfm file, difference between the two
 - How do you prepare the image for flashing into the SD card, which contains everything ready for execution
 - What happens when you do the loadapp
+    - Kria SOM uses xmutil to load applications dynamically
     - i think we are loading harware kernal to the existing system 
 - Why we need to "source" the setup scripts?
 - What is OpenCV

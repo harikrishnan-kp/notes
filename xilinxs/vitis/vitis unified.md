@@ -161,8 +161,10 @@ https://xilinx.github.io/kria-apps-docs/creating_applications/2022.1/build/html/
 https://docs.amd.com/r/2022.2-English/Vitis-Tutorials-Vitis-Platform-Creation/Custom-Kria-SOM-Platform-Creation-Example
 - in this example we are developing an hardware accelerated application for vector addition. ie, we are offloading burden of vector addition to a special hardware created on PL
 - install OS and setup communication interface to kv260
-- using vivado create a specific hardware (ps and pl-ps communcation interface(AXI)) for interfacing hardware kernal(PL) designed for vector addition.the output of step is XSA file,this will use for creating dtbo file
--  then create a `vitis platform`(on vitis) using the above `XSA`, which contain `dtbo` and `sysroot`
+- using vivado create a specific hardware (ps and pl-ps communcation interface(AXI)) for interfacing hardware kernal(PL) designed for vector addition.the output of step is XSA file
+- generate dts file from XSA file using createdts command in XSCT
+- create compiled version of dts, dtbo using DTC
+- then create a `vitis platform`(on vitis) using the above `XSA`, which contain `dtbo` and `sysroot`
 - then in vitis,import prewritten vector addition application and build it for running on kv260 
   - in this step we are building hardware kernal, PS-PL interfacer and application seperately.
   - we will get a `xclbin`(harware kernal) and executable app file 

@@ -20,3 +20,13 @@ scp <username>@<ip address>:<remote file dir> <dowload path>
 #scp push
 scp <dowload path> <username>@<ip address>:<remote file dir> 
 ```
+## error while fetching from git
+```bash
+error: RPC failed; curl 92 HTTP/2 stream 5 was not closed cleanly: CANCEL (err 8)
+error: 6791 bytes of body are still expected
+fetch-pack: unexpected disconnect while reading sideband packet
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
+```
+solution: git config --global http.postBuffer 524288000
+
