@@ -143,6 +143,8 @@ here are multiple ways by which the software program can interact with the hardw
 
 
 # hardware accelerated application development for kv260 using vitis
+https://xilinx.github.io/kria-apps-docs/creating_applications/2022.1/build/html/index.html
+
 hardware accelerated application can be doveloped using different methodes(called as development flow)
 1. vitis platform flow
 2. vitis accelerator flow
@@ -152,7 +154,7 @@ hardware accelerated application can be doveloped using different methodes(calle
 
 The design artifact captured from any of the workflows(not sure about bare-metal flow)for designing a PL configuration is a bitstream (.bit, often required in .bit.bin form). This bitstream can be loaded at boot as part of the device boot firmware, or after the OS boot via a runtime library.
 
-https://xilinx.github.io/kria-apps-docs/creating_applications/2022.1/build/html/docs/overview.html
+
 
 ```bash
 #note: development flows 4,5 don`t need vitis
@@ -199,6 +201,7 @@ https://docs.amd.com/r/2022.2-English/Vitis-Tutorials-Vitis-Platform-Creation/Cu
       - try changing OS to latest embedded linux(yocto),it has the latest packages `(working)`
 
 ## vitis accelerator flow 
+kria platforms: https://github.com/Xilinx/kria-vitis-platforms
 
 ## Bare metal build methods
 This section describes how to create a sample Hello World application using an existing template.
