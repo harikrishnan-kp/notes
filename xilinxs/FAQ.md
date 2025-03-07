@@ -1,10 +1,8 @@
-# tolearn
+# to learn
 - how to create a custom os for kv260 using petalinux tool
 - how to add dpu while building petalinux os
 - how to create an os using yocto
 - what is vitis platform
-# to learn latest
-
 - Difference between Yocto and PetaLinux tools, how to install this, for what purpose this is used
 - What is SYSROOT?
 - What is ROOTFS used for?
