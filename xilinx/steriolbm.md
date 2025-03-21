@@ -47,3 +47,6 @@ running stereolbm but the os ,doesnt have opencv files,unable to install opencv,
 - try different os
     - installed petalinux 22.1 now(need to try)
     - create OS using the rootfs from xilinx commom image in petalinux tool
+
+
+XRT_LOADER_DIR=/home/hari/workspace/kv260_vitis_platform/sysroots/cortexa72-cortexa53-xilinx-linux/usr/bin

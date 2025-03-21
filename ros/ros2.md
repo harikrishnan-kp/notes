@@ -1,6 +1,6 @@
 # ROS2
 rose is a series of libraries, tools and frameworks for simplifying robot development
-* in ros each processes that do a specific task is named as `node`
+* in ros `node` is a unit of computation that do a specific task 
 * nodes can be written in any language, but python and c++ is the default languages
 * ROS nodes typically communicate through interfaces of one of three types: `topics`, `services`, or `actions`
 * ros allows communication between node on the same system or different systems on the same network
@@ -17,10 +17,6 @@ rose is a series of libraries, tools and frameworks for simplifying robot develo
 ```
 or we can automate this by appending this sourcing command to .bashrc
 
-## Tools
-* `colcon` is the build tool in ros2
-* `Turtlesim` is a lightweight simulator for learning ROS 2
-* `rqt` is a GUI tool for ROS2
 
 ## useful commands
 * to run a node using in ros2
@@ -51,3 +47,29 @@ you can see all distributions(versions like jazzy, foxy etc) of ros installed in
 
 ## reference links
 * ros2 doc : https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html
+
+## doubts 
+- what is a processes in ros
+- what is 'type' in ros ,it is coming in every node interfacing methods
+- in environment setting
+    - what is domain id 
+    - what is automatic discovery range
+
+## to learning index
+- node
+    - parameters of node
+    - launching node
+- node communications
+    - topic    
+    - service
+    - action
+- ros tools
+    - `colcon` is the build tool in ros2
+    - `Turtlesim` is a lightweight simulator for learning ROS 2
+    - `rqt` is a GUI tool for ROS2
+        - rqt graph
+        - rqt console
+
+Learning resources 
+- https://www.youtube.com/@RobotLabs
+- https://youtu.be/ZfPMXft3yoc?si=ylFvIfWd6yn1iLG-

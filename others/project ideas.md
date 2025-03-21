@@ -1,0 +1,19 @@
+- develop a low cost IMU(inertia measurement unit): 
+    - consist of an inertial measurement system(accelerometer,gyroscope and magnetometer) and its data processing system using any microcontroller
+    - skill gaining areas
+        - hardware system design,pcb routing
+        - embedded programming
+        - dsp and others
+- develop a low cost temp,humidity lora node (as a product)
+    - skill gaining areas
+        - hardware system design,pcb routing
+        - embedded programming
+- develop a ROS2 driver for bosch BMX160 sensor
+    - for running on raspberry pi and jetson nano
+    - port wiringpi or other gpio library for this (only i2c and spi needed,bcz BMX160 only contains these)
+    - create a single package that contain everything
+- develop a code from scratch to read data from BMX160
+    - skill gaining
+        - how to read data from sensor
+        - how to do it from scratch
+        - how to write library
