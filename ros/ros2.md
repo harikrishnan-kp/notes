@@ -45,6 +45,9 @@ ros2 service list
 ```
 you can see all distributions(versions like jazzy, foxy etc) of ros installed in this directory
 
+## ros2 msg recording (msg baging)
+https://www.youtube.com/watch?v=a-O1qM9_S7k&t=556s
+
 ## reference links
 * ros2 doc : https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html
 
