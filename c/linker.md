@@ -13,5 +13,5 @@ In C programming, libraries allow you to reuse code across multiple programs. Th
 ## dynamic linking and static linking
 - dynamic linking leave place holders in application,that will resolve during runtime
 - we can use gcc flag `-static` for static linking
-## whats is laoder
+## whats is loader
 youtube resource: https://www.youtube.com/watch?v=YoyKDZlXCUM&list=PLIz6U0slZNq2TS1zSUjZHgxBjAJL4nb92
