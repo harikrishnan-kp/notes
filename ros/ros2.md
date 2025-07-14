@@ -72,6 +72,62 @@ https://www.youtube.com/watch?v=a-O1qM9_S7k&t=556s
     - `rqt` is a GUI tool for ROS2
         - rqt graph
         - rqt console
+## Setting up virtual environment for ROS2 Python packages
+Move to your package directory
+```
+cd <your_package_path>
+```
+Setup virtual environment
+```
+python3 -m venv .venv --system-site-packages --symlinks
+```
+The --system-site-packages flag allows the virtual environment to access system-wide Python packages.
+The --symlinks flag ensures compatibility by using symbolic links for Python executables
+Activate virtual environment
+```
+source .venv/bin/activate
+```
+Install dependencies
+```
+pip install <package_name>
+```
+Add the following lines to the setup.cfg of your package to use the virtual environment’s python.
+```
+[build_scripts]
+executable = /usr/bin/env python3
+```
+Add the following shebang line at the starting of your node’s Python script
+```
+#!/usr/bin/env python3
+```
+Source the ros2 underlying workspace (Igonore if you already added this in .bashrc)
+```
+source /opt/ros/jazzy/setup.bash
+```
+Prevent colcon from building the virtual environment directory
+```
+touch .venv/COLCON_IGNORE
+```
+Move to the parent directory of your ros2 workspace 
+```
+cd ../../
+``
+Build package
+```
+colcon build --packages-select <your package name>
+```
+Source the ros2 overlay workspace
+```
+source install/setup.bash
+```
+Run package using the following command (or create a launch file)
+```
+ros2 run <package name> <node name>
+```
+Deactivate the virtual environment when execution is completed
+```
+deactivate
+```
 
 Learning resources 
 - https://www.youtube.com/@RobotLabs
