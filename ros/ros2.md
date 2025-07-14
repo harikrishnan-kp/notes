@@ -111,7 +111,7 @@ touch .venv/COLCON_IGNORE
 Move to the parent directory of your ros2 workspace 
 ```
 cd ../../
-``
+```
 Build package
 ```
 colcon build --packages-select <your package name>
