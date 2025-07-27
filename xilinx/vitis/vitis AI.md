@@ -10,10 +10,13 @@ AMD Vitis™ AI software is an AI inference development platform for AMD devices
 It consists of 
 - a rich set of AI models : Pready-to-use AI models for various use cases(eg. for object detection, image classification, and natural language processing). Developers don’t need to train models from scratch,just optimize and deploy.
 - an optimized neural network processing unit (NPU) core(RTL implementations): which can be scaled and deployed on Xilinx FPGAs and MPSoCs for hardware accelerated inferencing
-- tools : Provides a user-friendly AI toolchain that simplifies the process of compiling, quantizing, and deploying AI models. it support popular AI frameworks like TensorFlow, PyTorch, and ONNX.
 - libraries and example designs.
-
-It is designed with high efficiency and ease of use in mind, empowering developers to unleash the full potential of AI acceleration.
+- AI Model Compiler & Optimizer : The platform includes tools to compile, quantize (usually into INT8 format), and optimize models from popular deep learning frameworks like TensorFlow, PyTorch, and ONNX into a hardware-compatible format (xmodel) for deployment on AMD devices
+- Profiling and Debugging Tools: It offers profilers and visualization tools to identify bottlenecks and optimize model deployment for specific hardware targets
+- Typical Workflow
+  - Train and quantize your model in TensorFlow, PyTorch, or ONNX.
+  - Compile the model using the Vitis AI Compiler to generate an xmodel file.
+  - Deploy the xmodel on AMD hardware using provided runtimes and libraries for efficient inference.
 
 - [github repo](https://github.com/Xilinx/Vitis-AI)
 - [Documentation of Vitis-AI V3.0](https://xilinx.github.io/Vitis-AI/3.0/html/index.html)
@@ -94,7 +97,10 @@ https://xilinx.github.io/Vitis-AI/3.0/html/docs/quickstart/mpsoc.html#setup-the-
 - to run an AI model on kv260, it should be converted into `<model_name>.xmodel `
 - `.xmodel` is the AI model quantized an compiled for running on kv260 or other xilixs dev boards
 - The `.prototxt` file is a Vitis™ AI configuration file that facilitates the uniform configuration management of model parameters. Please refer to the Vitis AI User Guide to learn more.
-
+## note2
+- You cannot directly deploy TensorFlow or PyTorch models on Xilinx DPU devices; instead, you use the Vitis AI workflow to create an xmodel
+- The Xilinx Vitis AI Compiler is a specialized tool used to convert deep learning models developed using popular frameworks like TensorFlow and PyTorch into an optimized, hardware-compatible format called xmodel, which can be deployed on Xilinx devices equipped with Deep Processing Units (DPUs)
+-  Vitis AI Compiler support TensorFlow, PyTorch, or ONNX models,but all the models should be quantized (usually INT8 format) before feeding into compiler.
 # doubt
 - what is the difference between vai_library and vai_runtime examples
 - why compiling example apps failing inside docker container(cross compilation)
