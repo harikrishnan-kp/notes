@@ -132,3 +132,21 @@ deactivate
 Learning resources 
 - https://www.youtube.com/@RobotLabs
 - https://youtu.be/ZfPMXft3yoc?si=ylFvIfWd6yn1iLG-
+
+## ros2 organization pages in github
+- https://github.com/ros
+- https://github.com/ros2
+- https://github.com/ros-navigation/
+- https://github.com/ros-controls
+- https://github.com/ros-planning
+- https://github.com/ros-teleop
+- https://github.com/ros-realtime
+- https://github.com/ros-drivers
+- https://github.com/ros-industrial
+- https://github.com/ros-perception
+- https://github.com/ros-visualization
+- https://github.com/gazebosim
+- https://github.com/ros-simulation
+  
+
+
