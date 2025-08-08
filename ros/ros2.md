@@ -147,6 +147,7 @@ Learning resources
 - https://github.com/ros-visualization
 - https://github.com/gazebosim
 - https://github.com/ros-simulation
+- https://github.com/ros-ai
   
 
 
