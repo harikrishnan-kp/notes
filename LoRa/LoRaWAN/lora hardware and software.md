@@ -2,28 +2,12 @@
 
 Criteria need to be considered while selecting a LoRa module
 
-1.  **Frequency Band**: Determine the frequency band that is appropriate
-    for your region and regulatory requirements. Common frequency bands
-    for LoRa communication include 433 MHz, 868 MHz, and 915 MHz.
-3.  **Communication Range**: Evaluate the required communication range
-    for your application. Consider factors such as terrain, obstacles,
-    and desired coverage area. Modules with higher transmit power and
+1.  **Frequency Band**: Determine the frequency band that is appropriate for your region and regulatory requirements. Common frequency bands for LoRa communication include 433 MHz, 868 MHz, and 915 MHz.
+3.  **Communication Range**: Evaluate the required communication range or your application. Consider factors such as terrain, obstacles, and desired coverage area. Modules with higher transmit power and
     sensitivity typically offer longer communication ranges.
-4.  **Data Rate**: Determine the required data rate for your
-    application. LoRa modules support adjustable data rates ranging from
-    a few hundred bits per second (bps) to several hundred kilobits per
-    second (kbps). Select a module that can meet the data rate
-    requirements of your application while balancing power consumption
-    and communication range.
-5.  **Power Consumption**: Consider the power consumption of the LoRa
-    module, especially if your application is battery-powered or
-    requires low power operation. Look for modules with low power
-    consumption in both active and sleep modes to maximize battery life.
-6.  **Interface**: Evaluate the interface options provided by the LoRa
-    module for communication with external microcontrollers or host
-    systems. This interface is used to configure the module\'s settings,
-    initiate transmissions, and receive data. Most modules use a Serial
-    Peripheral Interface (SPI) for configuration and data exchange.
+4.  **Data Rate**: Determine the required data rate for your pplication. LoRa modules support adjustable data rates ranging from a few hundred bits per second (bps) to several hundred kilobits per second (kbps). Select a module that can meet the data rate requirements of your application while balancing power consumption and communication range.
+5.  **Power Consumption**: Consider the power consumption of the LoRa module, especially if your application is battery-powered or requires low power operation. Look for modules with low power consumption in both active and sleep modes to maximize battery life.
+6.  **Interface**: Evaluate the interface options provided by the LoRa module for communication with external microcontrollers or host systems. This interface is used to configure the module\'s settings,  initiate transmissions, and receive data. Most modules use a Serial Peripheral Interface (SPI) for configuration and data exchange.
 7.  **Compatibility**: These modules must be compatible with popular
     development platforms and microcontrollers, making them easy to
     integrate into existing projects.
@@ -374,3 +358,4 @@ module (https://www.semtech.com/apps/product.php?pn=SX1276).
 -   new lora documents: <https://lora.readthedocs.io/en/latest/>
 -   <https://www.hackster.io/glovebox lorawan-for-raspberry-pi-with-worldwide-frequency-support-e327d2>
 -   <https://github.com/hallard/RPI-Lora-Gateway>
+
