@@ -1,12 +1,3 @@
-### what is argument parser in python
-In Python, an argument parser refers to a tool that helps handle command-line arguments passed to a script. The most commonly used argument parser is the argparse module from the standard library.
-What is argparse?
-
-argparse is a module that allows you to define expected command-line arguments, parse them, and use them in your script. This is useful when writing scripts that take input from the command line.
-
-### what is conda 
-Conda is an open-source package manager and environment management system that helps you install, update, and manage packages and dependencies for different programming languages, primarily Python, R, and C/C++.
-
 ### What is Quantization of an AI Model?
 
 Quantization is a process that reduces the precision of numerical values in a deep learning model to make it smaller, faster, and more efficient without significantly sacrificing accuracy.
