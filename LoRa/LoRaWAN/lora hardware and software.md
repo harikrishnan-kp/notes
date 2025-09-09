@@ -45,7 +45,7 @@ popular LoRa transceiver modules:
     to their projects. It also includes a GPS module for location-based
     applications.
 
-## Semtech SX1276/SX1278
+### Semtech SX1276/SX1278
 
 -   The Semtech SX1276/SX1278 is a family of
     programmable lora transceiver IC specifically
@@ -72,7 +72,7 @@ popular LoRa transceiver modules:
     frequency bands, including 433 MHz, 868 MHz, and 915 MHz, to comply
     with regional regulations and requirements.
 
-## HopeRF RFM95/RFM96
+### HopeRF RFM95/RFM96
 
 The HopeRF RFM95/RFM96 LoRa modules are based on Semtech\'s
 SX1276/SX1278 LoRa transceiver chips.
@@ -110,7 +110,7 @@ SX1276/SX1278 LoRa transceiver chips.
     microcontroller or host system that communicates with the
     RFM95/RFM96 module.
 
-## Microchip RN2483/RN2903
+### Microchip RN2483/RN2903
 The Microchip RN2483 and RN2903 are LoRaWAN modules designed to
 simplify the integration of LoRa technology into IoT devices.
 
@@ -162,7 +162,7 @@ Both base types have been ported to different platforms (microcontroller
 families) e.g. AVR, SAM, STM32, nRF5x, ESP32 and different development
 frameworks e.g. Arduino, ARM Mbed etc.
 
-IBM's original LMiC
+### IBM's original LMiC
 
 The IBM LMIC (LoraMAC-in-C) library is a widely-used, lightweight
 implementation of the LoRaWAN protocol stack in C. Originally developed
@@ -173,7 +173,7 @@ popular choice for IoT applications.
 
 Link : <https://research.ibm.com/labs/zurich/ics/lrsc/lmic.html>
 
-### Key Features
+#### Key Features
 
 1.  **LoRaWAN Compliance**: Supports LoRaWAN protocol features,
     including:
@@ -211,7 +211,7 @@ libraries if their official name is specified in the platformio.ini
 project configuration file.
 ```
 
-## SEMTECH LORAMAC-NODE LIBRARY
+### SEMTECH LORAMAC-NODE LIBRARY
 
 -   Semtech maintains a reference implementation of a LoRa end node.
 -   The code can be found at this location:[https://github.com/Lora-net/LoRaMac-node](https://github.com/Lora-net/LoRaMac-node)
@@ -227,7 +227,6 @@ project configuration file.
 ## LoRa libraries for arduino
 
 ### Arduino LMIC
-
 -   The IBM LMIC library is ported to Arduino platforms and is
     called Arduino LMIC. this was the first arduino lmic
     implimentation.
@@ -347,5 +346,6 @@ module (https://www.semtech.com/apps/product.php?pn=SX1276).
 -   new lora documents: <https://lora.readthedocs.io/en/latest/>
 -   <https://www.hackster.io/glovebox lorawan-for-raspberry-pi-with-worldwide-frequency-support-e327d2>
 -   <https://github.com/hallard/RPI-Lora-Gateway>
+
 
 
