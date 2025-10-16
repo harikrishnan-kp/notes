@@ -17,3 +17,10 @@
         - how to read data from sensor
         - how to do it from scratch
         - how to write library
+- football analysis using AI/ML
+    - search football analysis in github
+    - some reference repos
+        - https://github.com/mradovic38/football_analysis
+        - https://github.com/junhwanjang/whoscored
+        - https://github.com/AkshaySatasiya/Football-Analysis-System
+
