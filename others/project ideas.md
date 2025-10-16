@@ -19,6 +19,10 @@
         - how to write library
 - football analysis using AI/ML
     - search football analysis in github
+    - features required
+        - position analyis of players 
+        - individual player analysis from match video
+            - heatmap, pass map, number of touches,no.of shots(on ans off target) etc
     - some reference repos
         - https://github.com/mradovic38/football_analysis
         - https://github.com/junhwanjang/whoscored
