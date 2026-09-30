@@ -1,0 +1,50 @@
+# to learn
+- how to create a custom os for kv260 using petalinux tool
+- how to add dpu while building petalinux os
+- how to create an os using yocto
+- what is vitis platform
+- Difference between Yocto and PetaLinux tools, how to install this, for what purpose this is used
+- What is SYSROOT?
+- What is ROOTFS used for?
+- What is meant by device tree overlay
+- What is the use of .dtbo file
+- What is DTG(device tree generator) and DTC(device tree compiler)
+    - DTG is a vitis tool for generating device tree(dts) file from XSA
+    - we can find it from top menu, xilings >> generate device tree
+    - it is also possible to generate dts from XSCT console,using createdtb command
+    - DTC using to compile deviced tree source to dtbo
+- What is XSCT
+    - XSCT is a Console tool of Vitis. You can start it by typing xsct in Linux terminal to start it. Or, you can select menu Xilinx >> XSCT Console to start the XSCT tool after you launch Vitis.
+- What is a BSP?
+- What is the purpose of executing sdk.sh, what is it doing
+    - it is installing sysroot,it helps in cross compilation
+- Difference between various development flows...like Vitis Platform, Vitis Application, Vivado Platform, etc...all the items included in the first link I had sent you
+- In which flow, your each work is falling to
+Compare it with the Vitis-AI work you have done....which flow it is falling to
+- What is meant by HLS
+- Difference between Verilog/VHDL and the C++ code you have seen for stereolbm
+- What is the difference between a normal C++ code and the one you have seen for stereolbm
+- What is the difference between the stereolbm and stereolbm_tb programs you have seen in the source folder
+- What happens when you run the Make. what is Make, and what is the use of Makefile...how to interpret the statements in the Makefile
+- What are the different parameters to be set in the "env" for executing the cross compilation
+- What is the difference between .xclbin and .xmodel files
+- What is happening in the hardware when you execute these
+- What is the Vivado platform work you have done
+- Difference between a Vivado platform and Vitis platform
+- What is .xsa file, .xpfm file, difference between the two
+- How do you prepare the image for flashing into the SD card, which contains everything ready for execution
+- What happens when you do the loadapp
+    - Kria SOM uses xmutil to load applications dynamically
+    - i think we are loading harware kernal to the existing system 
+- Why we need to "source" the setup scripts?
+- What is OpenCV
+- Why do we need to set the OpenCV include library and load library?
+- In the Vitis-AI flow, why did you use the Docker?
+- What is a DPU?
+- How do DL models run a DPU? What is meant by layer support?
+- Do we need DPU for stereolbm execution?
+- What is meant by AXI connection?
+- What is OpenCL
+    - OpenCL™ API calls to manage runtime interactions with the accelerator. The hardware component, or kernel, can be developed using C/C++, OpenCL C, or RTL
+- What is the purpose of XRT?
+- What is meant by VART, how it is different from XRT

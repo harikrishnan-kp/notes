@@ -1,0 +1,30 @@
+- develop a low cost IMU(inertia measurement unit): 
+    - consist of an inertial measurement system(accelerometer,gyroscope and magnetometer) and its data processing system using any microcontroller
+    - skill gaining areas
+        - hardware system design,pcb routing
+        - embedded programming
+        - dsp and others
+- develop a low cost temp,humidity lora node (as a product)
+    - skill gaining areas
+        - hardware system design,pcb routing
+        - embedded programming
+- develop a ROS2 driver for bosch BMX160 sensor
+    - for running on raspberry pi and jetson nano
+    - port wiringpi or other gpio library for this (only i2c and spi needed,bcz BMX160 only contains these)
+    - create a single package that contain everything
+- develop a code from scratch to read data from BMX160
+    - skill gaining
+        - how to read data from sensor
+        - how to do it from scratch
+        - how to write library
+- football analysis using AI/ML
+    - search football analysis in github
+    - features required
+        - position analyis of players 
+        - individual player analysis from match video
+            - heatmap, pass map, number of touches,no.of shots(on ans off target) etc
+    - some reference repos
+        - https://github.com/mradovic38/football_analysis
+        - https://github.com/junhwanjang/whoscored
+        - https://github.com/AkshaySatasiya/Football-Analysis-System
+
